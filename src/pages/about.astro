@@ -1,0 +1,12 @@
+---
+import Layout from "../layouts/Layout.astro";
+import Card from "../components/Card.astro";
+import Navigation from "../components/Navigation.jsx";
+
+import { Menu } from "../menuObj.js";
+---
+
+<Layout title="Welcome to Astro.">
+  <Navigation menu={Menu} path={Astro.url.pathname} />
+  <main></main>
+</Layout>

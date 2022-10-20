@@ -1,0 +1,18 @@
+---
+const { publishedDate } = Astro.props;
+---
+
+<div class="flex gap-2 items-center">
+  <svg
+    width="16"
+    height="16"
+    viewBox="0 0 16 16"
+    fill="none"
+    xmlns="http://www.w3.org/2000/svg"
+  >
+    <path
+      d="M3 0V1H1V15H15V1H13V0H11V1H5V0H3ZM3 5H13V13H3V5ZM8 8V11H11V8H8Z"
+      fill="white"></path>
+  </svg>
+  <p>{publishedDate}</p>
+</div>

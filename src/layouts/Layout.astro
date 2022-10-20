@@ -1,0 +1,42 @@
+---
+import "../styles/global.css";
+
+import Navigation from "../components/Navigation";
+import Logo from "../components/Logo.astro";
+
+import { Menu } from "../menuObj.js";
+import Sidebar from "../components/Sidebar.astro";
+import Footer from "../components/Footer.astro";
+
+const { title } = Astro.props;
+---
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="generator" content={Astro.generator} />
+    <title>{title}</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body
+    class="bg-black text-white max-w-screen-2xl mx-auto p-4 lg:px-16 font-inter"
+  >
+    <div class="hidden md:block">
+      <Navigation menu={Menu} path={Astro.url.pathname} />
+    </div>
+
+    <main class="grid gap-8 lg:gap-16 lg:grid-cols-[1fr_3fr_1fr]">
+      <Sidebar />
+      <slot />
+    </main>
+    <Footer />
+  </body>
+</html>

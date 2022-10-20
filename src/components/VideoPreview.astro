@@ -1,0 +1,35 @@
+---
+import Button from "./Button.astro";
+import PublishedDate from "./PublishedDate.astro";
+const {
+  videoTitle,
+  videoThumbnail,
+  videoUrl,
+  videoDescription,
+  publishedDate,
+} = Astro.props;
+---
+
+<div class="flex flex-col gap-2">
+  <div class="relative flex">
+    <div class="absolute inset-0 h-full flex items-center justify-center">
+      <svg
+        width="48"
+        class="m-auto"
+        height="48"
+        viewBox="0 0 48 48"
+        fill="none"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path
+          d="M24 0C10.746 0 0 10.746 0 24C0 37.254 10.746 48 24 48C37.254 48 48 37.254 48 24C48 10.746 37.254 0 24 0ZM22.5 36H18V12H22.5L34.5 24L22.5 36Z"
+          fill="white"></path>
+      </svg>
+    </div>
+    <img src={videoThumbnail} alt="" />
+  </div>
+  <h3 class="font-glamour text-2xl">{videoTitle}</h3>
+  <PublishedDate publishedDate={publishedDate} />
+  <p class="mb-2">{videoDescription}</p>
+  <Button text="Watch video -->" href={videoUrl} />
+</div>

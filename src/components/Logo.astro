@@ -1,0 +1,82 @@
+---
+import { Menu } from "../menuObj.js";
+---
+
+<div class="flex justify-between items-center">
+  <div>
+    <div class="flex justify-between items-center">
+      <div class="flex gap-2 items-center">
+        <h1 class="font-glamour text-5xl">Aroreretini</h1>
+        <button data-el="play-el">
+          <svg
+            width="15"
+            height="14"
+            viewBox="0 0 15 14"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M11.6226 0.416992L11.1274 1.08301C11.1512 1.10951 13.25 3.77625 13.25 7C13.25 10.2125 11.1509 12.8905 11.1274 12.917L11.6226 13.583C11.7301 13.4628 14.25 10.6012 14.25 7C14.25 3.39875 11.7301 0.536992 11.6226 0.416992ZM6.5 1C6 3.5 3 4.75 3 4.75V9.25C3 9.25 6 10.5 6.5 13H7.5V1H6.5ZM10.3726 2.29199L9.87695 2.95752C9.89295 2.97577 11.25 4.81125 11.25 7C11.25 9.18875 9.89294 11.0242 9.87744 11.042L10.3726 11.708C10.4493 11.622 12.25 9.5775 12.25 7C12.25 4.4225 10.4493 2.37799 10.3726 2.29199ZM9.12256 4.16699L8.62646 4.83203C8.63521 4.84178 9.25 5.83425 9.25 7C9.25 8.16575 8.63519 9.15799 8.62744 9.16699L9.12256 9.83301C9.16881 9.78126 10.25 8.55375 10.25 7C10.25 5.44625 9.16881 4.21849 9.12256 4.16699ZM0.5 4.75C0.5 4.75 0 5.25 0 7C0 8.75 0.5 9.25 0.5 9.25H2.25L2 4.75H0.5Z"
+              fill="#868686"></path>
+          </svg>
+        </button>
+      </div>
+    </div>
+    <p class="italic">‘Attention goes to many things’</p>
+    <p class="text-gray">te reo Māori, ‘ADHD’</p>
+  </div>
+  <nav role="navigation" aria-label="Main menu">
+    <button
+      aria-expanded="true"
+      class="menu-button flex gap-2 items-center flex-col lg:hidden lg:invisible"
+    >
+      <svg
+        aria-hidden="true"
+        focusable="false"
+        width="24"
+        height="18"
+        viewBox="0 0 24 18"
+        fill="none"
+        xmlns="http://www.w3.org/2000/svg"
+        ><path
+          d="M0 7.5H24V10.5H0V7.5ZM0 0H24V3H0V0ZM0 15H24V18H0V15Z"
+          fill="white"></path>
+      </svg>
+      Menu
+    </button>
+    <menu
+      class="mobile-menu hidden flex flex-col gap-4 absolute top-0 left-0 w-screen h-screen bg-black items-center justify-center"
+    >
+      {
+        Menu.map((item) => {
+          return (
+            <li>
+              <a href={item.url}>{item.name}</a>
+            </li>
+          );
+        })
+      }
+      <li><button class="mobile-menu-close">Close menu</button></li>
+    </menu>
+  </nav>
+</div>
+
+<script is:inline>
+  const menuButtonElem = document.querySelector(".menu-button");
+  const mobileMenuElem = document.querySelector(".mobile-menu");
+  const mobileMenuCloseElem = document.querySelector(".mobile-menu-close");
+  const playPronunciationElem = document.querySelector("[data-el='play-el']");
+
+  menuButtonElem.addEventListener("click", () => {
+    mobileMenuElem.classList.toggle("hidden");
+  });
+
+  mobileMenuCloseElem.addEventListener("click", () => {
+    mobileMenuElem.classList.toggle("hidden");
+  });
+
+  playPronunciationElem.addEventListener("click", () => {
+    const audio = new Audio("/aroreretini-pronunciation.mp3");
+    audio.play();
+  });
+</script>

@@ -1,0 +1,21 @@
+---
+const { text, href, svg } = Astro.props;
+---
+
+<a
+  href={href}
+  class="flex px-4 py-3 border-2 border-gray w-fit gap-4 items-stretch"
+>
+  <svg
+    {/*class="h-6 flex flex-grow-0 self-center"*/}
+    class="h-6 shrink-0 self-center"
+    viewBox="0 0 24 24"
+    preserveAspectRatio="xMidYMid meet"
+    fill="none"
+    xmlns="http://www.w3.org/2000/svg"
+  >
+    <path d={svg} fill="white"></path>
+  </svg>
+  <hr class="h-auto border-l-2 border-gray" />
+  {text}
+</a>

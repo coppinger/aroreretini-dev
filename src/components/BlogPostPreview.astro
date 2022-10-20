@@ -1,0 +1,23 @@
+---
+import PublishedDate from "./PublishedDate.astro";
+import Button from "./Button.astro";
+const { postNumber, postTitle, postTags, postDate, postExcerpt, postUrl } =
+  Astro.props;
+---
+
+<div class="flex flex-col">
+  <p class="italic mb-2">Post #{postNumber}</p>
+  <h3 class="font-glamour text-2xl mb-2 lg:mb-4">{postTitle}</h3>
+  <ul class="flex gap-4 mb-2 lg:mb-4">
+    {
+      postTags.map((tag) => (
+        <li class="border-2 border-gray py-1 px-2 font-bold">
+          <a href={tag.url}>{tag.title}</a>
+        </li>
+      ))
+    }
+  </ul>
+  <PublishedDate publishedDate={postDate} />
+  <p class="mt-2 mb-4">{postExcerpt}</p>
+  <Button text="Read post -->" href={postUrl} />
+</div>
