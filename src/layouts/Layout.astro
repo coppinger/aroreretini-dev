@@ -8,7 +8,7 @@ import { Menu } from "../menuObj.js";
 import Sidebar from "../components/Sidebar.astro";
 import Footer from "../components/Footer.astro";
 
-const { title } = Astro.props;
+const { title, cols } = Astro.props;
 ---
 
 <!DOCTYPE html>
@@ -33,7 +33,7 @@ const { title } = Astro.props;
       <Navigation menu={Menu} path={Astro.url.pathname} />
     </div>
 
-    <main class="grid gap-8 lg:gap-16 lg:grid-cols-[1fr_3fr_1fr]">
+    <main class={`grid gap-8 lg:gap-16 grid-cols-[${cols}]`}>
       <Sidebar />
       <slot />
     </main>

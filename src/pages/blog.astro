@@ -1,0 +1,50 @@
+---
+import Layout from "../layouts/Layout.astro";
+import IntroHeader from "../components/IntroHeader.astro";
+import Banner from "../components/Banner.astro";
+import Button from "../components/Button.astro";
+import BlogPostPreview from "../components/BlogPostPreview.astro";
+import VideoPreview from "../components/VideoPreview.astro";
+
+const tagArray = [{ title: "Learning", url: "#" }];
+
+import thumbnail from "/images/thumbnail.png";
+---
+
+<Layout title="Aroreretini — Blog" cols="1fr_4fr">
+  <!-- Figure out why grid-cols-2 isn't working with Tailwind & replace the <style> -->
+  <section class="grid" style="grid-template-columns: 1fr 1fr;">
+    <BlogPostPreview
+      postNumber="001"
+      postTitle="Learning to learn"
+      postTags={tagArray}
+      postUrl="#"
+      postDate="17th October, 2022"
+      postExcerpt="I constantly feel like a noob. It seems like I'm always talking to some startup working in a new field I know nothing about, or reading a book about a topic..."
+    />
+    <BlogPostPreview
+      postNumber="001"
+      postTitle="Learning to learn"
+      postTags={tagArray}
+      postUrl="#"
+      postDate="17th October, 2022"
+      postExcerpt="I constantly feel like a noob. It seems like I'm always talking to some startup working in a new field I know nothing about, or reading a book about a topic..."
+    />
+    <BlogPostPreview
+      postNumber="001"
+      postTitle="Learning to learn"
+      postTags={tagArray}
+      postUrl="#"
+      postDate="17th October, 2022"
+      postExcerpt="I constantly feel like a noob. It seems like I'm always talking to some startup working in a new field I know nothing about, or reading a book about a topic..."
+    />
+    <BlogPostPreview
+      postNumber="001"
+      postTitle="Learning to learn"
+      postTags={tagArray}
+      postUrl="#"
+      postDate="17th October, 2022"
+      postExcerpt="I constantly feel like a noob. It seems like I'm always talking to some startup working in a new field I know nothing about, or reading a book about a topic..."
+    />
+  </section>
+</Layout>
