@@ -18,7 +18,7 @@ const { title, cols } = Astro.props;
     <meta name="viewport" content="width=device-width" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <meta name="generator" content={Astro.generator} />
-    <title>{title}</title>
+    <title>Aroreretini | {title}</title>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
@@ -33,7 +33,7 @@ const { title, cols } = Astro.props;
       <Navigation menu={Menu} path={Astro.url.pathname} />
     </div>
 
-    <main class={`grid gap-8 lg:gap-16 grid-cols-[${cols}]`}>
+    <main class={`grid gap-8 lg:gap-16 lg:grid-cols-[${cols}]`}>
       <Sidebar />
       <slot />
     </main>
