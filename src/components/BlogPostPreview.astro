@@ -1,7 +1,7 @@
 ---
 import PublishedDate from "./PublishedDate.astro";
 import Button from "./Button.astro";
-const { postNumber, postTitle, postTags, postDate, postExcerpt, postUrl } =
+const { postNumber, postTitle, postTags, postDate, postExcerpt, postUrl, previewToggle } =
   Astro.props;
 ---
 
@@ -18,6 +18,8 @@ const { postNumber, postTitle, postTags, postDate, postExcerpt, postUrl } =
     }
   </ul>
   <PublishedDate publishedDate={postDate} />
-  <p class="mt-2 mb-4">{postExcerpt}</p>
+  {previewToggle ? <div>
+    <p class="mt-2 mb-4">{postExcerpt}</p>
   <Button text="Read post -->" href={postUrl} />
+  </div> : null}
 </div>

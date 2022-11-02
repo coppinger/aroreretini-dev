@@ -1,0 +1,30 @@
+---
+import Layout from "../layouts/Layout.astro";
+import IntroHeader from "../components/IntroHeader.astro";
+import Button from "../components/Button.astro";
+import ArchiveDate from "../components/ArchiveDate.astro";
+import BlogPostPreview from "../components/BlogPostPreview.astro";
+
+const tagArray = [{ title: "Learning", url: "#" }];
+---
+
+<Layout title="Post title" cols="1fr_2px_4fr">
+  <div class="vl"></div>
+  <div class="flex flex-col gap-8 max-w-2xl">
+    <a href="./writing" target="_blank" class="text-gray">{'<--'} back to writing</a>
+    <BlogPostPreview
+          postNumber="001"
+          postTitle="Learning to learn"
+          postTags={tagArray}
+          postUrl="#"
+          postDate="17th October, 2022"
+          postExcerpt="I constantly feel like a noob. It seems like I'm always talking to some startup working in a new field I know nothing about, or reading a book about a topic..."
+          previewToggle={false}
+        />
+        <p class="indent-8">
+            For years, I’ve struggled with consitently following a routine in the mornings. As someone diagnosed with an executive function disorder, routines are tricky things indeed.
+        </p>
+        <p class="indent-8">
+            One day, I had an idea: what if I created a list of tasks, then benchmarked how long it took me to complete them, individually and cumulatively. My arm-chair psychology hypothesis was that it’d make the routine much more dopaminergic.</p>
+</div>
+</Layout>

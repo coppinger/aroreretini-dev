@@ -4,7 +4,9 @@ export default function Navigation(props) {
   const { menu, path } = props;
   return (
     <nav className="flex justify-between mt-8 mb-16">
-      <p className="text-gray">Learning, growing & building in public</p>
+      <a href="./" className="text-gray">
+        Learning, growing & building in public
+      </a>
       <menu className="flex gap-6">
         {menu.map((item, index) => {
           return (

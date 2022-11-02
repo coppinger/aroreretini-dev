@@ -11,7 +11,8 @@ import thumbnail from "/images/thumbnail.png";
 const tagArray = [{ title: "Learning", url: "#" }];
 ---
 
-<Layout title="Home" cols="1fr_3fr_1fr">
+<Layout title="Home" cols="1fr_2px_3fr_2px_1fr">
+  <div class="vl"></div>
   <section class="flex flex-col gap-4">
     <IntroHeader title="Currently" subtitle="What I’m currently working on" />
     <Banner
@@ -54,6 +55,8 @@ const tagArray = [{ title: "Learning", url: "#" }];
     </div>
     <Button text="More about Bookstop -->" href="/writing/bookstop" />
   </section>
+  <div class="vl"></div>
+
   <aside class="flex flex-col gap-8 min-w-full max-w-full">
     <IntroHeader title="Latest" subtitle="The most recent writing & video" />
     <BlogPostPreview
@@ -63,9 +66,10 @@ const tagArray = [{ title: "Learning", url: "#" }];
       postUrl="#"
       postDate="17th October, 2022"
       postExcerpt="I constantly feel like a noob. It seems like I'm always talking to some startup working in a new field I know nothing about, or reading a book about a topic..."
+      previewToggle={true}
     />
     <VideoPreview
-      videoTitle="Sunny Sunday morning"
+      videoTitle="Sunday morning"
       videoThumbnail={thumbnail}
       videoUrl="#"
       videoDescription="A short and strange video of how I start the day."
