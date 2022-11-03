@@ -1,9 +1,10 @@
 ---
 # layout: "../../layouts/BlogPost.astro"
-title: "Second Test Post"
+title: "Ancient Post"
 description: "Here is a sample of some basic Markdown syntax that can be used when writing Markdown content in Astro."
 pubDate: "January 01 2022"
 heroImage: "/placeholder-hero.jpg"
+tags: ["Ancient","General"]
 ---
 
 ---

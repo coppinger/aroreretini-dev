@@ -8,7 +8,8 @@ import VideoPreview from "../components/VideoPreview.astro";
 
 import thumbnail from "/images/thumbnail.png";
 
-const tagArray = [{ title: "Learning", url: "#" }];
+const posts = await Astro.glob("./blog/*.md");
+const post = posts[0];
 ---
 
 <Layout title="Home" cols="1fr_2px_3fr_2px_1fr">
@@ -60,12 +61,13 @@ const tagArray = [{ title: "Learning", url: "#" }];
   <aside class="flex flex-col gap-8 min-w-full max-w-full">
     <IntroHeader title="Latest" subtitle="The most recent writing & video" />
     <BlogPostPreview
-      postNumber="001"
-      postTitle="Learning to learn"
-      postTags={tagArray}
-      postUrl="#"
-      postDate="17th October, 2022"
-      postExcerpt="I constantly feel like a noob. It seems like I'm always talking to some startup working in a new field I know nothing about, or reading a book about a topic..."
+      post={post}
+      postNumber={posts.length}
+      postTitle={post.frontmatter.title}
+      postTags={post.frontmatter.tags}
+      postUrl={post.url}
+      postDate={post.frontmatter.pubDate}
+      post={post}
       previewToggle={true}
     />
     <VideoPreview

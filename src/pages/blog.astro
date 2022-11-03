@@ -85,7 +85,7 @@ const groupedPosts = datePostsArray.map((month) => {
                             post={post}
                             postNumber={oppositeIndex}
                             postTitle={post.frontmatter.title}
-                            postTags={tagArray}
+                            postTags={post.frontmatter.tags}
                             postUrl={post.url}
                             postDate={post.frontmatter.pubDate}
                             post={post}

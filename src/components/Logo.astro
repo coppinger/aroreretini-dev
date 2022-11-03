@@ -2,11 +2,13 @@
 import { Menu } from "../menuObj.js";
 ---
 
-<a href="/" class="flex justify-between items-center">
+<div class="flex justify-between items-center">
   <div>
     <div class="flex justify-between items-center">
       <div class="flex gap-2 items-center">
-        <h1 class="font-glamour text-4xl md:text-5xl">Aroreretini</h1>
+        <a href="/">
+          <h1 class="font-glamour text-4xl md:text-5xl">Aroreretini</h1>
+        </a>
         <button data-el="play-el">
           <svg
             width="15"
@@ -59,7 +61,7 @@ import { Menu } from "../menuObj.js";
       <li><button class="mobile-menu-close">Close menu</button></li>
     </menu>
   </nav>
-</a>
+</div>
 
 <script is:inline>
   const menuButtonElem = document.querySelector(".menu-button");
