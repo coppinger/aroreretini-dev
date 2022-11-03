@@ -68,7 +68,7 @@ const groupedPosts = datePostsArray.map((month) => {
     <IntroHeader title="Writing" subtitle="Posts I've written" />
     <div>
       <section>
-        <div class="grid grid-cols-[auto_1fr] gap-8">
+        <div class="grid grid-cols-[auto_1fr] gap-8 md:gap-x-8 gap-y-16">
           {
             groupedPosts.map((month, indexGrouped) => {
               let [datePostMonth, datePostYear] =
@@ -76,7 +76,7 @@ const groupedPosts = datePostsArray.map((month) => {
               return (
                 <Fragment>
                   <ArchiveDate month={datePostMonth} year={datePostYear} />
-                  <ul class="grid gap-8 md:gap-16 max-w-md">
+                  <ul class="grid gap-8 max-w-md">
                     {month.map((post, indexMonth, array) => {
                       let oppositeIndex = posts.length - post.index;
                       return (
