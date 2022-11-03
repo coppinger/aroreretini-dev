@@ -59,7 +59,7 @@ const groupedPosts = datePostsArray.map((month) => {
   <div class="vl"></div>
   <div class="flex flex-col gap-8">
     <IntroHeader title="Writing" subtitle="Posts I've written" />
-    <div class="grid grid-cols-[auto_1fr] gap-8">
+    <!-- <div class="grid grid-cols-[auto_1fr] gap-8">
       <ArchiveDate month="November" year="2022" />
       <section class="grid gap-8 md:gap-16 max-w-md">
         <BlogPostPreview
@@ -103,31 +103,47 @@ const groupedPosts = datePostsArray.map((month) => {
           previewToggle={true}
         />
       </section>
-    </div>
+    </div> -->
     <div>
       <section>
         {
           groupedPosts.map((month, index) => {
+            let [datePostMonth, datePostYear] =
+              datePostsArray[index].split(" ");
             return (
               <Fragment>
-                <h3>{datePostsArray[index]}</h3>
-                <ul>
-                  {month.map((post) => {
-                    return (
-                      <li>
-                        <time datetime={post.frontmatter.pubDate}>
-                          {new Date(
-                            post.frontmatter.pubDate
-                          ).toLocaleDateString("en-us", {
-                            month: "long",
-                            day: "2-digit",
-                          })}
-                        </time>
-                        <a href={post.url}>{post.frontmatter.title}</a>
-                      </li>
-                    );
-                  })}
-                </ul>
+                <div class="grid grid-cols-[auto_1fr] gap-8">
+                  <ArchiveDate month={datePostMonth} year={datePostYear} />
+                  <section class="grid gap-8 md:gap-16 max-w-md">
+                    <ul>
+                      {month.map((post, index, array) => {
+                        let oppositeIndex = array.length - index;
+                        return (
+                          <li>
+                            <BlogPostPreview
+                              postNumber={oppositeIndex}
+                              postTitle={post.frontmatter.title}
+                              postTags={tagArray}
+                              postUrl="#"
+                              postDate={post.frontmatter.pubDate}
+                              postExcerpt="I constantly feel like a noob. It seems like I'm always talking to some startup working in a new field I know nothing about, or reading a book about a topic..."
+                              previewToggle={true}
+                            />
+                            <time datetime={post.frontmatter.pubDate}>
+                              {new Date(
+                                post.frontmatter.pubDate
+                              ).toLocaleDateString("en-us", {
+                                month: "long",
+                                day: "2-digit",
+                              })}
+                            </time>
+                            <a href={post.url}>{post.frontmatter.title}</a>
+                          </li>
+                        );
+                      })}
+                    </ul>
+                  </section>
+                </div>
               </Fragment>
             );
           })

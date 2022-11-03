@@ -14,5 +14,7 @@ const { publishedDate } = Astro.props;
       d="M3 0V1H1V15H15V1H13V0H11V1H5V0H3ZM3 5H13V13H3V5ZM8 8V11H11V8H8Z"
       fill="white"></path>
   </svg>
-  <p>{publishedDate}</p>
+  <date time={publishedDate}>
+    <p>{publishedDate}</p>
+  </date>
 </div>
