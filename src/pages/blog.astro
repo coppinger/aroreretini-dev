@@ -8,11 +8,18 @@ import ArchiveDate from "../components/ArchiveDate.astro";
 const tagArray = [{ title: "Learning", url: "#" }];
 
 // Use Astro.glob() to fetch all posts, and then sort them by date.
-const posts = (await Astro.glob("./blog/*.{md,mdx}")).sort(
+let posts = (await Astro.glob("./blog/*.{md,mdx}")).sort(
   (a, b) =>
     new Date(b.frontmatter.pubDate).valueOf() -
     new Date(a.frontmatter.pubDate).valueOf()
 );
+
+posts = posts.map((post, index) => {
+  return {
+    ...post,
+    index,
+  };
+});
 
 // Group posts by month & year
 const datePostsArray = [];
@@ -59,95 +66,40 @@ const groupedPosts = datePostsArray.map((month) => {
   <div class="vl"></div>
   <div class="flex flex-col gap-8">
     <IntroHeader title="Writing" subtitle="Posts I've written" />
-    <!-- <div class="grid grid-cols-[auto_1fr] gap-8">
-      <ArchiveDate month="November" year="2022" />
-      <section class="grid gap-8 md:gap-16 max-w-md">
-        <BlogPostPreview
-          postNumber="001"
-          postTitle="Learning to learn"
-          postTags={tagArray}
-          postUrl="#"
-          postDate="17th October, 2022"
-          postExcerpt="I constantly feel like a noob. It seems like I'm always talking to some startup working in a new field I know nothing about, or reading a book about a topic..."
-          previewToggle={true}
-        />
-        <BlogPostPreview
-          postNumber="001"
-          postTitle="Learning to learn"
-          postTags={tagArray}
-          postUrl="#"
-          postDate="17th October, 2022"
-          postExcerpt="I constantly feel like a noob. It seems like I'm always talking to some startup working in a new field I know nothing about, or reading a book about a topic..."
-          previewToggle={true}
-        />
-      </section>
-
-      <ArchiveDate month="October" year="2022" />
-      <section class="grid gap-8 md:gap-16 max-w-md">
-        <BlogPostPreview
-          postNumber="001"
-          postTitle="Learning to learn"
-          postTags={tagArray}
-          postUrl="#"
-          postDate="17th October, 2022"
-          postExcerpt="I constantly feel like a noob. It seems like I'm always talking to some startup working in a new field I know nothing about, or reading a book about a topic..."
-          previewToggle={true}
-        />
-        <BlogPostPreview
-          postNumber="001"
-          postTitle="Learning to learn"
-          postTags={tagArray}
-          postUrl="#"
-          postDate="17th October, 2022"
-          postExcerpt="I constantly feel like a noob. It seems like I'm always talking to some startup working in a new field I know nothing about, or reading a book about a topic..."
-          previewToggle={true}
-        />
-      </section>
-    </div> -->
     <div>
       <section>
-        {
-          groupedPosts.map((month, index) => {
-            let [datePostMonth, datePostYear] =
-              datePostsArray[index].split(" ");
-            return (
-              <Fragment>
-                <div class="grid grid-cols-[auto_1fr] gap-8">
+        <div class="grid grid-cols-[auto_1fr] gap-8">
+          {
+            groupedPosts.map((month, indexGrouped) => {
+              let [datePostMonth, datePostYear] =
+                datePostsArray[indexGrouped].split(" ");
+              return (
+                <Fragment>
                   <ArchiveDate month={datePostMonth} year={datePostYear} />
-                  <section class="grid gap-8 md:gap-16 max-w-md">
-                    <ul>
-                      {month.map((post, index, array) => {
-                        let oppositeIndex = array.length - index;
-                        return (
-                          <li>
-                            <BlogPostPreview
-                              postNumber={oppositeIndex}
-                              postTitle={post.frontmatter.title}
-                              postTags={tagArray}
-                              postUrl="#"
-                              postDate={post.frontmatter.pubDate}
-                              postExcerpt="I constantly feel like a noob. It seems like I'm always talking to some startup working in a new field I know nothing about, or reading a book about a topic..."
-                              previewToggle={true}
-                            />
-                            <time datetime={post.frontmatter.pubDate}>
-                              {new Date(
-                                post.frontmatter.pubDate
-                              ).toLocaleDateString("en-us", {
-                                month: "long",
-                                day: "2-digit",
-                              })}
-                            </time>
-                            <a href={post.url}>{post.frontmatter.title}</a>
-                          </li>
-                        );
-                      })}
-                    </ul>
-                  </section>
-                </div>
-              </Fragment>
-            );
-          })
-        }
+                  <ul class="grid gap-8 md:gap-16 max-w-md">
+                    {month.map((post, indexMonth, array) => {
+                      let oppositeIndex = posts.length - post.index;
+                      return (
+                        <li>
+                          <BlogPostPreview
+                            post={post}
+                            postNumber={oppositeIndex}
+                            postTitle={post.frontmatter.title}
+                            postTags={tagArray}
+                            postUrl={post.url}
+                            postDate={post.frontmatter.pubDate}
+                            post={post}
+                            previewToggle={true}
+                          />
+                        </li>
+                      );
+                    })}
+                  </ul>
+                </Fragment>
+              );
+            })
+          }
+        </div>
       </section>
     </div>
   </div>

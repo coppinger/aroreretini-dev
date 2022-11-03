@@ -1,8 +1,17 @@
 ---
 import PublishedDate from "./PublishedDate.astro";
 import Button from "./Button.astro";
-const { postNumber, postTitle, postTags, postDate, postExcerpt, postUrl, previewToggle } =
-  Astro.props;
+import PostExcerpt from "@igor.dvlpr/astro-post-excerpt";
+
+const {
+  post,
+  postNumber,
+  postTitle,
+  postTags,
+  postDate,
+  postUrl,
+  previewToggle,
+} = Astro.props;
 ---
 
 <div class="flex flex-col">
@@ -18,8 +27,16 @@ const { postNumber, postTitle, postTags, postDate, postExcerpt, postUrl, preview
     }
   </ul>
   <PublishedDate publishedDate={postDate} />
-  {previewToggle ? <div>
-    <p class="mt-2 mb-4">{postExcerpt}</p>
-  <Button text="Read post -->" href={postUrl} />
-  </div> : null}
+  {
+    previewToggle ? (
+      <div>
+        <p class="mt-2 mb-4">
+          {post ? (
+            <PostExcerpt post={post} words={20} addEllipsis={true} />
+          ) : null}
+        </p>
+        <Button text="Read post -->" href={postUrl} />
+      </div>
+    ) : null
+  }
 </div>

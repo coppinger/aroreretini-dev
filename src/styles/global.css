@@ -22,3 +22,8 @@ h2
 {
     @apply h-full border-l-2 border-gray;
 }
+
+.button
+{
+    @apply px-4 py-3 border-2 border-gray w-fit block;
+}
