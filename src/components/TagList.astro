@@ -1,0 +1,46 @@
+---
+//@ts-nocheck
+import Tag from "./Tag.astro";
+
+const posts = await Astro.glob("../pages/blog/*.md");
+
+const uniqueTags = [...new Set(posts.flatMap((post) => post.frontmatter.tags))];
+
+let tagCount = {};
+
+uniqueTags.forEach((tag) => {
+  tagCount[tag] = 0;
+});
+
+posts.forEach((post) => {
+  post.frontmatter.tags.forEach((tag) => {
+    tagCount[tag] = tagCount[tag] + 1;
+  });
+});
+
+// Here's an interesting way of doing the above two loops more succinctly,
+// provided by Creep's & samwhoo on the stream: a 'Nullish coalescing operator (??)'
+//
+// https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Nullish_coalescing
+
+// posts.forEach((post) => {
+//     post.frontmatter.tags.forEach((tag) => {
+//         tagCount[tag] =  (tagCount[tag] ?? 0) + 1
+//     })
+// })
+
+// Sort the tags from most tags to least
+let tagCountSorted = Object.entries(tagCount).sort((a, b) => {
+  return b[1] - a[1];
+});
+
+const { tagLimit } = Astro.props;
+---
+
+<ul class="flex gap-4 flex-col">
+  {
+    tagCountSorted.slice(0, tagLimit).map((tag) => {
+      return <Tag tag={tag} tagCount={tagCount[tag]} />;
+    })
+  }
+</ul>

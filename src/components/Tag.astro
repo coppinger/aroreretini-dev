@@ -1,0 +1,12 @@
+---
+const { tag } = Astro.props;
+const [tagName, tagCount] = tag;
+console.log(tag);
+---
+
+<li>
+  <a href={`./tags/${tagName}`} class="flex gap-2 items-center">
+    <div class="tag">{tagName}</div>
+    <p class="text-gray font-bold">{tagCount} posts</p>
+  </a>
+</li>
