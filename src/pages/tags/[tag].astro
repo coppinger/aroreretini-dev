@@ -1,4 +1,8 @@
 ---
+import Layout from "../../layouts/Layout.astro";
+import IntroHeader from "../../components/IntroHeader.astro";
+import BlogPostPreview from "../../components/BlogPostPreview.astro";
+
 export async function getStaticPaths() {
   const allPosts = await Astro.glob("../blog/*.md");
 
@@ -18,19 +22,45 @@ export async function getStaticPaths() {
 }
 
 const { tag } = Astro.params;
-const { posts } = Astro.props;
+let { posts } = Astro.props;
+
+posts = posts.sort((a, b) => {
+  return b.frontmatter.id - a.frontmatter.id;
+});
 ---
 
-<p>Posts tagged with {tag}</p>
-
-<ul>
-  {
-    posts.map((post) => {
-      return (
-        <li>
-          <a href={post.url}>{post.frontmatter.title}</a>
-        </li>
-      );
-    })
-  }
-</ul>
+<Layout title="Writing" cols="1fr_2px_4fr">
+  <div class="vl"></div>
+  <div class="flex flex-col gap-8">
+    <IntroHeader
+      title={`Tags: ${tag}`}
+      subtitle={`A list of all posts tagged with "${tag}"`}
+    />
+    <div>
+      <section>
+        <div class="grid grid-cols-[auto_1fr] gap-8 md:gap-x-8 gap-y-16">
+          <ul class="grid gap-8 max-w-md">
+            {
+              posts.map((post) => {
+                return (
+                  <li>
+                    <BlogPostPreview
+                      post={post}
+                      postNumber={post.frontmatter.id}
+                      postTitle={post.frontmatter.title}
+                      postTags={post.frontmatter.tags}
+                      postUrl={post.url}
+                      postDate={post.frontmatter.pubDate}
+                      post={post}
+                      previewToggle={true}
+                    />
+                  </li>
+                );
+              })
+            }
+          </ul>
+        </div>
+      </section>
+    </div>
+  </div>
+</Layout>

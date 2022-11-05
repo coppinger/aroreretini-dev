@@ -1,7 +1,6 @@
 ---
 import Layout from "../layouts/Layout.astro";
 import IntroHeader from "../components/IntroHeader.astro";
-import Button from "../components/Button.astro";
 import BlogPostPreview from "../components/BlogPostPreview.astro";
 import ArchiveDate from "../components/ArchiveDate.astro";
 
@@ -78,17 +77,15 @@ const groupedPosts = datePostsArray.map((month) => {
                   <ArchiveDate month={datePostMonth} year={datePostYear} />
                   <ul class="grid gap-8 max-w-md">
                     {month.map((post, indexMonth, array) => {
-                      let oppositeIndex = posts.length - post.index;
                       return (
                         <li>
                           <BlogPostPreview
                             post={post}
-                            postNumber={oppositeIndex}
+                            postNumber={post.frontmatter.id}
                             postTitle={post.frontmatter.title}
                             postTags={post.frontmatter.tags}
                             postUrl={post.url}
                             postDate={post.frontmatter.pubDate}
-                            post={post}
                             previewToggle={true}
                           />
                         </li>

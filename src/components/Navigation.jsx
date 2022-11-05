@@ -13,7 +13,7 @@ export default function Navigation(props) {
             <>
               <li key={item.name} className="">
                 <a
-                  href={`./${item.url}`}
+                  href={`/${item.url}`}
                   className={
                     "flex gap-2 items-center " +
                     (path === `/${item.url}` || `/${item.name}` === "Home"
