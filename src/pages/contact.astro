@@ -1,0 +1,105 @@
+---
+import Layout from "../layouts/Layout.astro";
+import IntroHeader from "../components/IntroHeader.astro";
+---
+
+<Layout title="Writing" cols="1fr_2px_4fr">
+  <div class="vl"></div>
+  <div class="flex flex-col gap-8">
+    <IntroHeader
+      title="Contact"
+      subtitle="Here are a few ways to reach me, email is probably most reliable"
+    />
+    <div>
+      <section>
+        <div
+          class="grid grid-cols-[auto_1fr] gap-8 md:gap-x-8 gap-y-16 max-w-md"
+        >
+          <ul class="flex flex-col gap-4">
+            <li class="flex gap-2 items-center">
+              <svg
+                width="16"
+                height="16"
+                viewBox="0 0 16 16"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M0 2V4L8 9L16 4V2H0ZM0 6V14H16V6L8 11L0 6Z"
+                  fill="#868686"></path>
+              </svg>
+              <p id="emailElement" class="cursor-pointer">
+                <span class="font-bold">Email:</span> charles.coppinger@gmail.com
+              </p>
+            </li>
+            <li class="flex gap-2 items-center">
+              <svg
+                width="16"
+                height="14"
+                viewBox="0 0 16 14"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M16 1.10506L15.726 0.883057C15.726 0.883057 14.617 1.63006 13.974 1.69706C13.355 1.04006 12.471 0.633057 11.491 0.633057C9.611 0.633057 8.086 2.14406 8.086 4.00706C8.086 4.27006 8.117 4.52706 8.174 4.77606C5.345 4.63606 3.596 2.98606 1.918 0.944057L1.201 1.27206C1.201 1.27206 0.744 2.61106 0.744 4.03806C0.744 7.87906 3.774 10.1811 4.923 10.7311C3.629 11.8701 0.522 11.7151 0.522 11.7151L0 12.3371C0 12.3371 1.885 14.0001 5.22 14.0001C11.482 14.0001 14.909 9.38506 14.909 4.39606C14.909 4.25006 14.904 4.10406 14.896 3.96206C15.653 3.10506 16 2.21406 16 1.10506Z"
+                  fill="#868686"></path>
+              </svg>
+
+              <p>
+                <span class="font-bold">Twitter:</span>
+                <a
+                  class="underline"
+                  href="https://twitter.com/thecoppinger"
+                  target="_blank">@TheCoppinger</a
+                >
+              </p>
+            </li>
+            <li class="flex gap-2 items-center">
+              <svg
+                width="16"
+                height="12"
+                viewBox="0 0 16 12"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M6.58387 1.3259C6.4676 1.0027 6.35027 0.676832 6.34814 0.672565C6.29214 0.547232 6.16254 0.468298 6.026 0.482165C5.9396 0.489098 3.89534 0.665098 2.58547 1.71843C1.90067 2.35097 0.533203 6.0491 0.533203 9.24643C0.533203 9.30297 0.547603 9.3579 0.57587 9.40697C1.5204 11.0656 4.09534 11.4998 4.682 11.5184C4.68574 11.519 4.68894 11.519 4.69214 11.519C4.7956 11.519 4.89267 11.4694 4.95454 11.3856L5.5892 10.5259C4.54067 10.3664 4.35134 10.1584 4.30707 10.1259C4.07027 9.9515 3.89534 9.70723 4.1076 9.39896C4.2708 9.1595 4.6132 9.08056 4.8756 9.2155C5.1444 9.34083 5.86387 9.74403 7.99987 9.73337C10.1209 9.72696 11.0521 9.2827 11.0655 9.2731C11.4217 9.11257 11.6996 9.1787 11.8729 9.41656C12.0793 9.7403 11.9321 9.9595 11.6964 10.1334C11.6521 10.1659 11.5449 10.2571 10.4185 10.5238L11.0452 11.3851C11.1065 11.4694 11.2041 11.5184 11.3076 11.5184C11.3113 11.5184 11.3145 11.5184 11.3177 11.5179C11.9049 11.4992 14.4799 11.0651 15.4239 9.40643C15.4521 9.35736 15.4665 9.30243 15.4665 9.2459C15.4665 6.0491 14.0991 2.35097 13.3972 1.70456C12.1044 0.665632 10.0601 0.489631 9.97374 0.482165C9.8372 0.470431 9.7076 0.547765 9.6516 0.672565C9.64947 0.676832 9.53534 1.00803 9.42494 1.3275C9.42494 1.3275 8.55507 1.20003 7.99987 1.20003C7.44467 1.20003 6.58387 1.3259 6.58387 1.3259ZM5.86654 8.13337C5.2772 8.13337 4.79987 7.42243 4.79987 6.54457C4.79987 5.6667 5.2772 4.95576 5.86654 4.95576C6.458 4.86776 6.9204 5.6667 6.9332 6.54457C6.9332 7.42243 6.45587 8.13337 5.86654 8.13337ZM10.1332 8.13337C9.54387 8.13337 9.06654 7.41763 9.06654 6.53497C9.06654 5.6523 9.54387 4.93656 10.1332 4.93656C10.7225 4.93656 11.1999 5.6523 11.1999 6.53497C11.1999 7.41763 10.7225 8.13337 10.1332 8.13337Z"
+                  fill="#868686"></path>
+              </svg>
+
+              <p id="discordElement" class="cursor-pointer">
+                <span class="font-bold">Discord:</span> TheCoppinger#0001
+              </p>
+            </li>
+          </ul>
+        </div>
+      </section>
+    </div>
+  </div>
+</Layout>
+
+<script>
+  const email = "charles.coppinger@gmail.com";
+  const discord = "TheCoppinger#0001";
+
+  const copy = (str) => {
+    navigator.clipboard.writeText(str).then(
+      //success
+      () => {
+        console.log(`copied ${str} :)`);
+      },
+      //failure
+      () => {
+        console.log(":(");
+      }
+    );
+  };
+
+  document.getElementById("emailElement").addEventListener("click", () => {
+    copy(email);
+  });
+
+  document.getElementById("discordElement").addEventListener("click", () => {
+    copy(discord);
+  });
+</script>

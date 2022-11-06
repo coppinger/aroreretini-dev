@@ -4,7 +4,7 @@ export default function Navigation(props) {
   const { menu, path } = props;
   return (
     <nav className="flex justify-between mt-8 mb-16">
-      <a href="./" className="text-gray">
+      <a href="/" className="text-gray">
         Learning, growing & building in public
       </a>
       <menu className="flex gap-6">

@@ -3,6 +3,8 @@ import LinkCard from "./LinkCard.astro";
 import Logo from "./Logo.astro";
 import Button from "./Button.astro";
 import TagList from "./TagList.astro";
+
+const arrow = "-->"
 ---
 
 <aside class="flex flex-col gap-8 min-w-full max-w-full">
@@ -19,7 +21,7 @@ import TagList from "./TagList.astro";
     the final dragonball: backend skills.
     <br />
     <br />
-    I have aroreretini, otherwise known as ‘ADD’/’ADHD-I’. I hope to write about
+    I have aroreretini, otherwise known as ADD/ADHD-I. I hope to write about
     my journey into development, and my lifelong challenge of channeling my many
     attentions in a productive and empowering way.
   </p>
@@ -27,7 +29,7 @@ import TagList from "./TagList.astro";
   <div class="flex flex-col gap-4">
     <div class="flex flex-col">
       <h3>Tags</h3>
-      <a href="./tags" class="text-gray">View all tags -></a>
+      <a href="/tags" class="text-gray">View all tags {arrow}</a>
     </div>
 
     <TagList tagLimit="3" />

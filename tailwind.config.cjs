@@ -15,6 +15,29 @@ module.exports = {
         black: "#0E0E0E",
         gray: "#868686",
       },
+      typography: {
+        DEFAULT: {
+          css: {
+            color: "#FFF",
+            h2: {
+              color: "#FFF",
+              fontFamily: "inter",
+            },
+            h3: {
+              color: "#FFF",
+              fontFamily: "inter",
+            },
+            h4: {
+              color: "#FFF",
+              fontFamily: "inter",
+            },
+            h5: {
+              color: "#FFF",
+              fontFamily: "inter",
+            },
+          },
+        },
+      },
     },
   },
   plugins: [require("@tailwindcss/typography")],
