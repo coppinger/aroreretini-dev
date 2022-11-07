@@ -16,7 +16,10 @@ import IntroHeader from "../components/IntroHeader.astro";
           class="grid grid-cols-[auto_1fr] gap-8 md:gap-x-8 gap-y-16 max-w-md"
         >
           <ul class="flex flex-col gap-4">
-            <li class="flex gap-2 items-center">
+            <li
+              class="flex gap-2 items-center cursor-pointer"
+              id="emailElement"
+            >
               <svg
                 width="16"
                 height="16"
@@ -28,9 +31,10 @@ import IntroHeader from "../components/IntroHeader.astro";
                   d="M0 2V4L8 9L16 4V2H0ZM0 6V14H16V6L8 11L0 6Z"
                   fill="#868686"></path>
               </svg>
-              <p id="emailElement" class="cursor-pointer">
+              <p>
                 <span class="font-bold">Email:</span> charles.coppinger@gmail.com
               </p>
+              <p class="text-gray underline">copy</p>
             </li>
             <li class="flex gap-2 items-center">
               <svg
@@ -54,7 +58,10 @@ import IntroHeader from "../components/IntroHeader.astro";
                 >
               </p>
             </li>
-            <li class="flex gap-2 items-center">
+            <li
+              class="flex gap-2 items-center cursor-pointer"
+              id="discordElement"
+            >
               <svg
                 width="16"
                 height="12"
@@ -67,9 +74,10 @@ import IntroHeader from "../components/IntroHeader.astro";
                   fill="#868686"></path>
               </svg>
 
-              <p id="discordElement" class="cursor-pointer">
+              <p>
                 <span class="font-bold">Discord:</span> TheCoppinger#0001
               </p>
+              <p class="text-gray underline">copy</p>
             </li>
           </ul>
         </div>
@@ -79,6 +87,8 @@ import IntroHeader from "../components/IntroHeader.astro";
 </Layout>
 
 <script>
+  // Clipboard logic
+
   const email = "charles.coppinger@gmail.com";
   const discord = "TheCoppinger#0001";
 
@@ -95,11 +105,37 @@ import IntroHeader from "../components/IntroHeader.astro";
     );
   };
 
-  document.getElementById("emailElement").addEventListener("click", () => {
+  document.getElementById("emailElement").addEventListener("click", (e) => {
     copy(email);
+    clipboardNotification(e.pageX, e.pageY);
   });
 
-  document.getElementById("discordElement").addEventListener("click", () => {
+  document.getElementById("discordElement").addEventListener("click", (e) => {
     copy(discord);
+    clipboardNotification(e.pageX, e.pageY);
   });
+
+  // Clipboard notification
+  const overlay = document.getElementById("overlay");
+
+  const clipboardNotification = (x, y) => {
+    const imageElement = document.createElement("img");
+
+    imageElement.addEventListener("animationend", () => {
+      imageElement.remove();
+    });
+
+    imageElement.classList.add(
+      "absolute",
+      "text-green-500",
+      "animate-copied-ping"
+    );
+    imageElement.style.top = `${y - 50}px`;
+    imageElement.style.left = `${x - 50}px`;
+    imageElement.width = 100;
+    imageElement.height = 100;
+    imageElement.src = "/images/ClippyV2.webp";
+
+    overlay.appendChild(imageElement);
+  };
 </script>

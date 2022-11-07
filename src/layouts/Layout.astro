@@ -26,17 +26,24 @@ const { title, cols } = Astro.props;
       rel="stylesheet"
     />
   </head>
-  <body
-    class="bg-black text-white max-w-screen-2xl mx-auto p-4 lg:px-16 font-inter"
-  >
-    <div class="hidden md:block">
-      <Navigation menu={Menu} path={Astro.url.pathname} />
-    </div>
+  <body class="bg-black">
+    <div
+      class="bg-black text-white max-w-screen-2xl mx-auto p-4 lg:px-16 font-inter relative"
+    >
+      <div class="hidden md:block">
+        <Navigation menu={Menu} path={Astro.url.pathname} />
+      </div>
 
-    <main class={`grid gap-8 lg:gap-16 lg:grid-cols-[${cols}]`}>
-      <Sidebar />
-      <slot />
-    </main>
-    <Footer />
+      <main class={`grid gap-8 lg:gap-16 lg:grid-cols-[${cols}]`}>
+        <Sidebar />
+        <slot />
+      </main>
+      <Footer />
+    </div>
+    <div
+      id="overlay"
+      class="absolute inset-0 overflow-hidden pointer-events-none"
+    >
+    </div>
   </body>
 </html>

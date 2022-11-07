@@ -15,6 +15,9 @@ module.exports = {
         black: "#0E0E0E",
         gray: "#868686",
       },
+      animation: {
+        "copied-ping": "ping 1.5s ease-in-out 1 forwards",
+      },
       typography: {
         DEFAULT: {
           css: {
