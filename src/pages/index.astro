@@ -6,8 +6,6 @@ import Button from "../components/Button.astro";
 import BlogPostPreview from "../components/BlogPostPreview.astro";
 import VideoPreview from "../components/VideoPreview.astro";
 
-import thumbnail from "/images/thumbnail.png";
-
 const posts = await Astro.glob("./blog/*.md");
 const post = posts[0];
 ---
@@ -72,7 +70,7 @@ const post = posts[0];
     />
     <VideoPreview
       videoTitle="Sunday morning"
-      videoThumbnail={thumbnail}
+      videoThumbnail="/images/thumbnail.png"
       videoUrl="#"
       videoDescription="A short and strange video of how I start the day."
       publishedDate="17th October, 2022"
