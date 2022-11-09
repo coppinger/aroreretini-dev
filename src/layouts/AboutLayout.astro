@@ -1,0 +1,21 @@
+---
+import Layout from "./Layout.astro";
+import IntroHeader from "../components/IntroHeader.astro";
+const { frontmatter: content } = Astro.props;
+const { title, subtitle } = content;
+let pages = await Astro.glob("../pages/*.md");
+---
+
+<Layout title="Writing" cols="1fr_2px_4fr">
+  <div class="vl"></div>
+  <div class="flex flex-col gap-8">
+    <IntroHeader title={title} subtitle={subtitle} />
+    <div>
+      <section>
+        <article class="prose prose-base">
+          <slot />
+        </article>
+      </section>
+    </div>
+  </div>
+</Layout>

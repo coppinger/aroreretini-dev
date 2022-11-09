@@ -26,6 +26,10 @@ module.exports = {
               color: "#FFF",
               fontFamily: "inter",
             },
+            a: {
+              color: "#FFF",
+              textDecoration: "underline",
+            },
             h3: {
               color: "#FFF",
               fontFamily: "inter",

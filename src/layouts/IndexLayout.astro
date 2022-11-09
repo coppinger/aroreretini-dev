@@ -1,0 +1,52 @@
+---
+import Layout from "../layouts/Layout.astro";
+import IntroHeader from "../components/IntroHeader.astro";
+import Banner from "../components/Banner.astro";
+import Button from "../components/Button.astro";
+import BlogPostPreview from "../components/BlogPostPreview.astro";
+import VideoPreview from "../components/VideoPreview.astro";
+
+const posts = await Astro.glob("../pages/blog/*.md");
+const post = posts[0];
+---
+
+<Layout title="Home" cols="1fr_2px_3fr_2px_1fr">
+  <div class="vl"></div>
+  <section class="flex flex-col gap-4">
+    <IntroHeader title="Currently" subtitle="What I’m currently working on" />
+    <Banner
+      href="https://twitch.tv/aroreretini"
+      target="_blank"
+      text="I’m building Bookstop live on Twitch! Check out the stream -->"
+      svg="M5.3002 3.19995L3.7002 6.39995V19.2H7.7002V21.6H10.9002L13.3002 19.2H16.5002L21.3002 14.4V3.19995H5.3002ZM6.9002 4.79995H19.7002V13.6L17.3002 16H12.5002L10.1002 18.4V16H6.9002V4.79995ZM10.9002 7.19995V12.8H12.5002V7.19995H10.9002ZM14.1002 7.19995V12.8H15.7002V7.19995H14.1002Z"
+    />
+    <div class="flex flex-col gap-1">
+      <article class="prose prose-base">
+        <slot />
+      </article>
+    </div>
+    <Button text="More about Bookstop -->" href="/writing/bookstop" />
+  </section>
+  <div class="vl"></div>
+
+  <aside class="flex flex-col gap-8 min-w-full max-w-full">
+    <IntroHeader title="Latest" subtitle="The most recent writing & video" />
+    <BlogPostPreview
+      post={post}
+      postNumber={posts.length}
+      postTitle={post.frontmatter.title}
+      postTags={post.frontmatter.tags}
+      postUrl={post.url}
+      postDate={post.frontmatter.pubDate}
+      post={post}
+      previewToggle={true}
+    />
+    <VideoPreview
+      videoTitle="Sunday morning"
+      videoThumbnail="/images/thumbnail.png"
+      videoUrl="#"
+      videoDescription="A short and strange video of how I start the day."
+      publishedDate="17th October, 2022"
+    />
+  </aside>
+</Layout>
