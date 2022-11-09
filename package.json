@@ -13,6 +13,7 @@
   "dependencies": {
     "@astrojs/netlify": "^1.2.0",
     "@astrojs/tailwind": "^2.1.0",
+    "@swup/fade-theme": "^1.0.5",
     "astro": "^1.5.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
@@ -20,6 +21,7 @@
   },
   "devDependencies": {
     "@igor.dvlpr/astro-post-excerpt": "^1.0.3",
-    "@tailwindcss/typography": "^0.5.7"
+    "@tailwindcss/typography": "^0.5.7",
+    "swup": "^2.0.19"
   }
 }

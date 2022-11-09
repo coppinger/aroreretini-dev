@@ -33,9 +33,11 @@ const { title, cols } = Astro.props;
         <Navigation menu={Menu} path={Astro.url.pathname} />
       </div>
 
-      <main class={`grid gap-8 lg:gap-16 lg:grid-cols-[${cols}]`}>
+      <main class="grid gap-8 lg:gap-16 lg:grid-cols-[1fr_4fr]">
         <Sidebar />
-        <slot />
+        <div id="swup" class={`grid gap-8 lg:gap-16 lg:grid-cols-[${cols}]`}>
+          <slot />
+        </div>
       </main>
       <Footer />
     </div>
@@ -44,5 +46,13 @@ const { title, cols } = Astro.props;
       class="absolute inset-0 overflow-hidden pointer-events-none"
     >
     </div>
+    <script>
+      import Swup from "swup";
+      import SwupFadeTheme from "@swup/fade-theme";
+
+      const swup = new Swup({
+        plugins: [new SwupFadeTheme()],
+      });
+    </script>
   </body>
 </html>

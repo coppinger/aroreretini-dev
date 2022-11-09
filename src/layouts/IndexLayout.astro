@@ -10,8 +10,7 @@ const posts = await Astro.glob("../pages/blog/*.md");
 const post = posts[0];
 ---
 
-<Layout title="Home" cols="1fr_2px_3fr_2px_1fr">
-  <div class="vl"></div>
+<Layout title="Home" cols="3fr_2px_1fr">
   <section class="flex flex-col gap-4">
     <IntroHeader title="Currently" subtitle="What I’m currently working on" />
     <Banner
@@ -25,7 +24,7 @@ const post = posts[0];
         <slot />
       </article>
     </div>
-    <Button text="More about Bookstop -->" href="/writing/bookstop" />
+    <Button text="More about Bookstop -->" href="/bookstop" />
   </section>
   <div class="vl"></div>
 

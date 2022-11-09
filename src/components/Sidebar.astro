@@ -4,34 +4,38 @@ import Logo from "./Logo.astro";
 import Button from "./Button.astro";
 import TagList from "./TagList.astro";
 
-const arrow = "-->"
+const arrow = "-->";
 ---
 
-<aside class="flex flex-col gap-8 min-w-full max-w-full">
-  <Logo />
-  <LinkCard />
-  <p>
-    Hi, my name is Charlie.
-    <br />
-    <br />
-    I’m a 27 year old indie hacker & Twitch streamer living in Wellington, New Zealand.
-    <br />
-    <br />
-    My background is in design, marketing & product, but I’m on a mission to collect
-    the final dragonball: backend skills.
-    <br />
-    <br />
-    I have aroreretini, otherwise known as ADD/ADHD-I. I hope to write about
-    my journey into development, and my lifelong challenge of channeling my many
-    attentions in a productive and empowering way.
-  </p>
-  <Button text="More about me -->" href="/about" />
-  <div class="flex flex-col gap-4">
-    <div class="flex flex-col">
-      <h3>Tags</h3>
-      <a href="/tags" class="text-gray">View all tags {arrow}</a>
-    </div>
+<div class="flex gap-8 lg:gap-16 mr-16">
+  <aside class="flex flex-col gap-8 min-w-full max-w-full">
+    <Logo />
+    <LinkCard />
+    <p>
+      Hi, my name is Charlie.
+      <br />
+      <br />
+      I’m a 27 year old indie hacker & Twitch streamer living in Wellington, New
+      Zealand.
+      <br />
+      <br />
+      My background is in design, marketing & product, but I’m on a mission to collect
+      the final dragonball: backend skills.
+      <br />
+      <br />
+      I have aroreretini, otherwise known as ADD/ADHD-I. I hope to write about my
+      journey into development, and my lifelong challenge of channeling my many attentions
+      in a productive and empowering way.
+    </p>
+    <Button text="More about me -->" href="/about" />
+    <div class="flex flex-col gap-4">
+      <div class="flex flex-col">
+        <h3>Tags</h3>
+        <a href="/tags" class="text-gray">View all tags {arrow}</a>
+      </div>
 
-    <TagList tagLimit="3" />
-  </div>
-</aside>
+      <TagList tagLimit="3" />
+    </div>
+  </aside>
+  <div class="vl"></div>
+</div>
